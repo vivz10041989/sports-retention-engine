@@ -28,18 +28,24 @@ MLOps: MLflow + SQLite
 Communication: Resend API
 
 🏃‍♂️ How to Run
+
 1. Environment Setup
+
 Bash
 
-# Install dependencies
+_Install dependencies_ -
+
 pip install -r requirements.txt
 
-# Start Ollama (Ensure llama3.1 is pulled)
+_Start Ollama (Ensure llama3.1 is pulled)_
+
 ollama run llama3.1
+
 2. Start MLOps Tracking Server
 Bash
 
 mlflow server --backend-store-uri sqlite:///mlflow.db --default-artifact-root ./mlruns --port 5050
+
 3. Train the Model (with Tracking)
 Bash
 
@@ -47,9 +53,11 @@ python src/train_model.py
 View metrics at http://localhost:5050
 
 4. Launch the Agentic API
+
 Bash
 
 python src/main.py
+
 Test the system at http://127.0.0.1:8000/docs
 
 📊 MLOps Insights

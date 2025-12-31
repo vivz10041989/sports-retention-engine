@@ -1,0 +1,11 @@
+# Python junk
+__pycache__/
+*.py[cod]
+env/
+venv/
+.env
+
+# ML artifacts (too large for GitHub)
+models/*.pkl
+mlruns/
+mlflow.db

@@ -1,0 +1,20 @@
+# Web API & Data Validation
+fastapi
+uvicorn
+pydantic
+email-validator
+
+# Machine Learning & MLOps
+xgboost
+scikit-learn
+pandas
+numpy
+joblib
+mlflow
+
+# Generative AI & Agents
+langchain-ollama
+resend
+
+# Environment
+python-dotenv

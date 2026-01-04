@@ -79,3 +79,5 @@ JSON
   "churn_probability": 0.9213,
   "agent_action_summary": "High risk detected. Dispatched 'LOYAL50' discount via Resend. Reason: Fan has watched 9 losses with low app engagement."
 }
+
+NOTE: MLFLOW DOES NOT WORK IN THE LATEST PUSH

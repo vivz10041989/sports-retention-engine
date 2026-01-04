@@ -1,0 +1,40 @@
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    environment:
+      - MLFLOW_TRACKING_URI=http://mlflow:5050
+      - OLLAMA_BASE_URL=http://ollama:11434
+    depends_on:
+      - mlflow
+      - ollama
+
+  mlflow:
+    image: ghcr.io/mlflow/mlflow:latest
+    ports:
+      - "5050:5050"
+    volumes:
+      - ./mlruns:/app/mlruns
+      - ./mlflow.db:/app/mlflow.db
+    environment:
+      - MLFLOW_SERVER_DISABLE_HOST_VALIDATION=true
+    command: >
+      mlflow server
+      --backend-store-uri sqlite:///app/mlflow.db
+      --default-artifact-root /app/mlruns
+      --host 0.0.0.0
+      --port 5050
+      --serve-artifacts
+
+  ollama:
+    image: ollama/ollama:latest
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama:/root/.ollama
+
+volumes:
+  ollama:
